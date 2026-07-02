@@ -1,0 +1,160 @@
+body{
+    background-color: rgba(29, 87, 103, 1);
+    font-family:"Montserrat", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    height: 80vh;
+}
+
+.general{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ContenedorSesion{
+    background-color: rgb(56, 102, 114);
+    border: 1px solid rgb(62, 101, 113);
+    width: 400px;
+    padding: 35px;
+    border-radius: 10px;
+}
+
+.logoDeco{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align:center;
+    margin-bottom: auto;
+}                                           
+
+.logoDeco img{
+    width: 80px;
+}
+
+
+
+.botonInicioSesion{
+
+    background-color: rgba(69, 114, 127, 1);
+    font-weight: medium;
+}
+h1{
+    font-family: "Newsreader", serif;
+    font-size: 22px;
+    font-weight: medium;
+}
+
+h2{
+    font-family: "Jost", sans-serif;
+    font-weight: bold   ;
+    font-size: 22px;    
+}
+
+p{
+    font-size: 11px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input[type="email"], input[type="password"], input[type="text"]{
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(120, 194, 216, 0.689);
+    box-shadow: 0 8px 32px 0 rgb(62, 101, 113, 0.37);   
+    inset: 0 2px 2px 0 rgba(255,255,255,0.5);
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+a{
+    display: block;
+    text-align: right;
+    color: rgba(69, 114, 127, 1);
+    font-size: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+button[type="submit"]{
+    width: 70%;
+    padding: 18px;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    background-color:rgb(153, 190, 200);
+    color: black;
+    
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#formularioLogin, 
+#formularioRegistro, 
+#recuperarContraseña {
+
+    animation: aparecerSuave 1s ease-out forwards;
+}
+
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.btonesEleccion {
+    position: relative;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.03); 
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+
+.btonesEleccion button {
+    flex: 1;
+    background: transparent; 
+    border: none;
+    padding: 10px 0;
+    color: rgba(255, 255, 255, 0.4); 
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease; 
+    position: relative;
+    z-index: 2; 
+}
+
+.btonesEleccion button.activo {
+    color: #ffffff; 
+}
+
+.fondo-deslizante {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px);
+    height: calc(100% - 10px);
+    background-color: rgba(255, 255, 255, 0.15); 
+    border-radius: 6px;
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); 
+    z-index: 1;
+}
+
+.btonesEleccion.mover-derecha .fondo-deslizante {
+    transform: translateX(100%);
+}

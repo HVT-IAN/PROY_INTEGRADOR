@@ -1,0 +1,312 @@
+:root {
+    --color-header-footer: rgba(15, 53, 62, 1);   /* El más oscuro (Header/Footer) */
+    --color-fondo-tarjetas: rgba(29, 87, 103, 1);   /* El más claro (Franja del título) */
+    --color-fondo-titulo: rgba(20, 69, 82, 1);  /* El intermedio (Fondo general) */
+    
+    --color-tarjetas: rgba(255, 255, 255, 0.04);  /* Cristal de las tarjetas */
+    --color-texto-blanco: #ffffff;
+    --color-texto-opaco: rgba(255, 255, 255, 0.7);
+    --fuente-principal: 'Montserrat', sans-serif;
+    --fuente-titulos: 'Jost', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: var(--color-texto-blanco);
+    background-color: var(--color-fondo-tarjetas); 
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-texto-blanco);
+    text-decoration: none;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-texto-opaco);
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   HEADER Y NAVEGACIÓN
+   ========================================= */
+.seccion-hero {
+    width: 100%;
+}
+
+.clienteGeneral {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--color-header-footer); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logoDeco {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logoDeco img {
+    height: 40px;
+}
+
+.logoDeco h4 {
+    font-family: "newsreader", serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.barraMenu {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+.barraMenu a {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.barraMenu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-texto-blanco); 
+    transition: width 0.3s ease;
+}
+
+.barraMenu a:hover::after {
+    width: 100%;
+}
+
+.barraMenu a:hover {
+    opacity: 1; 
+    color: var(--color-texto-blanco);
+}
+
+.iconoUsuario {
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+}
+
+/* Submenús */
+.desplegableServicios, #conRegistro > div {
+    position: relative;
+    padding: 15px; 
+}
+
+.subMenu, .desplegableRegistro {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: var(--color-fondo-secundario); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.desplegableRegistro {
+    left: auto;
+    right: 0;
+}
+
+.desplegableServicios:hover .subMenu, 
+#conRegistro > div:hover .desplegableRegistro {
+    display: block;
+}
+
+.subMenu li, .desplegableRegistro li {
+    margin-bottom: 12px;
+}
+
+.subMenu li:last-child, .desplegableRegistro li:last-child {
+    margin-bottom: 0;
+}
+
+.subMenu a, .desplegableRegistro a {
+    display: block;
+    font-size: 13px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subMenu li:nth-last-child(2) a, 
+.desplegableRegistro li:nth-last-child(2) a {
+    border-bottom: none;
+}
+
+.textoPequeño {
+    font-size: 12px !important;
+    color: var(--color-texto-opaco) !important;
+    border-bottom: none !important;
+}
+
+/* Ocultar contenido sobrante del hero para esta vista específica */
+.contenidoHero {
+    display: none; 
+}
+
+/* =========================================
+   SECCIÓN DE TÍTULO Y SERVICIOS
+   ========================================= */
+.tituloServicios {
+    background-color: var(--color-fondo-titulo); 
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: max(5%, calc((100vw - 1200px) / 2));
+    padding-right: max(5%, calc((100vw - 1200px) / 2));
+    margin: 0; 
+    max-width: 100%; 
+}
+.tituloServicios p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--color-texto-opaco);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.tituloServicios h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 42px;
+    font-weight: 700;
+}
+
+/* Grid de 2x2 para las tarjetas */
+.cuadrosServicios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 90px 5% 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cuadroBodas, .cuadroFInfantiles, .cuadroXVaños, .cuadroBabyShower {
+    background-color: var(--color-tarjetas); 
+    border: 1px solid rgba(120, 194, 216, 0.689);
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cuadroBodas:hover, .cuadroFInfantiles:hover, .cuadroXVaños:hover, .cuadroBabyShower:hover {
+    transform: translateY(-5px);
+    background-color: rgba(43, 111, 129, 0.6);
+}
+
+.cuadrosServicios img {
+    width: 100%;
+    height: 280px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.cuadrosServicios h4 {
+    font-family: var(--fuente-titulos);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.cuadrosServicios p {
+    color: var(--color-texto-opaco);
+    font-size: 14px;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Empuja el enlace hacia abajo */
+}
+
+.cuadrosServicios a {
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background-color: var(--color-header-footer); 
+    padding: 70px 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+.generalFooter {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logoFooter .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-family: "newsreader", serif;
+}
+
+.logoFooter .logo img {
+    height: 40px;
+}
+
+.logoFooter p {
+    color: var(--color-texto-opaco);
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 350px;
+}
+
+.linksNavegacion h4, .redesSociales h4 {
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.linksNavegacion a, .redesSociales a {
+    font-family: "Montserrat", serif;
+    color: var(--color-texto-opaco);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.linksNavegacion a:hover, .redesSociales a:hover {
+    color: var(--color-texto-blanco);
+}
