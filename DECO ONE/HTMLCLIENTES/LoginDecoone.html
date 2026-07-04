@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title> Login Deco-One</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Montserrat:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+        <link rel="styleSheet" href="../CSSCLIENTE/style.css">
+    </head>
+    <body>
+        <div class="general">
+            <div class="logoDeco">
+                <a href="paginaInicialClientes.html"><img src="C:\Users\ian22\Desktop\DECO ONE\ImagenesEnUso\imagen_2026-06-13_190700068 3 (1).png" alt="Logo Deco-One"></a>
+                <h1>DECO - ONE</h1>
+            </div>
+            <div class="ContenedorSesion">
+                
+                    <div class="btonesEleccion" id="contenedorBotones">
+                        <div class="fondo-deslizante"></div>
+                        <button class="botonInicioSesion">Inicio de sesion</button>
+                        <button class="botonRegistro">Registrarse</button>
+                    </div>
+                <form id="formularioLogin">
+                    <h2>Bienvenido de vuelta</h2>
+                    <p>Ingresa tus datos para continuar</p>
+                    <input type="email" placeholder="Correo electronico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <a href="#" id="linkRecuperar">Olvidaste tu contraseña?</a>
+                    <button type="submit">Iniciar sesion</button>
+                </form>
+                <form id="formularioRegistro" style="display: none;">
+                    <h2>Crear cuenta</h2>
+                    <p>Crea tu cuenta para guardar tus eventos</p>
+
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electronico" required>
+                    <input type="password" id="resContraseña" placeholder="Contraseña" required>
+                    <input type="password" id="confContraseña" placeholder="Confirmar contraseña" required>
+                    
+                    <button type="submit"> Crear cuenta &rarr;</button>
+                </form>
+                <form id="recuperarContraseña" style="display: none;">
+                    <h2>Recuperar contraseña</h2>
+                    <p>Te enviaremos un enlace a tu correo para restablecer tu contraseña</p>
+                    <input type="email" placeholder="Correo electronico" required>
+                    <button type="submit">Enviar correo &rarr;</button>
+                </form>
+            </div>
+        </div>
+        <script src="../JavaScripts/JSLogin.js"></script>
+    </body>
+</html>

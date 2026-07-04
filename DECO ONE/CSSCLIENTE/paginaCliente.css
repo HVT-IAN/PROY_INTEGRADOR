@@ -1,0 +1,407 @@
+
+:root {
+    --color-fondo-principal: rgba(20, 69, 82, 1); 
+    --color-fondo-secundario: rgba(29, 87, 103, 1); 
+    --color-texto-blanco: #ffffff;
+    --color-texto-opaco: rgba(255, 255, 255, 0.7);
+    --fuente-principal: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: var(--color-texto-blanco);
+    background-color: var(--color-fondo-principal);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-texto-blanco);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+.seccion-hero {
+    background-image: url("../ImagenesEnUso/image\ 2\ \(1\).png");
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.clienteGeneral {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+}
+
+.logoDeco {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logoDeco h4 {
+    font-family: "newsreader", serif;
+    font-size: 18px;
+    font-weight: medium;
+
+}
+
+.barraMenu {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+.barraMenu a {
+    font-family: "jost", sans-serif;
+    font-weight: lighter;
+    position: relative;
+    padding-bottom: 0px; 
+    text-transform: uppercase;
+}
+
+
+.barraMenu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px; /* Grosor de la línea */
+    background-color: rgb(39, 100, 115); /* Opacidad bastante baja */
+    transition: width 0.3s ease; /* Animación fluida */
+}
+
+/* Al pasar el mouse, la línea crece al 100% */
+.barraMenu a:hover::after {
+    width: 100%;
+}
+
+/* Opcional: Reemplaza tu anterior .barraMenu a:hover { opacity: 0.7; } 
+   para que el texto se mantenga sólido mientras aparece la línea */
+.barraMenu a:hover {
+    opacity: 1; 
+}
+
+.iconoUsuario {
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+}
+
+#iconoUsuario {
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+}
+
+.desplegableServicios, #conRegistro > div {
+    position: relative;
+    padding: 15px 0; 
+}
+
+.subMenu, .desplegableRegistro {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+
+    border-radius: 12px;
+    padding: 20px;
+    z-index: 10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.desplegableRegistro {
+    left: auto;
+    right: 0;
+}
+
+.desplegableServicios:hover .subMenu, 
+#conRegistro > div:hover .desplegableRegistro {
+    display: block;
+}
+
+.subMenu li, .desplegableRegistro li {
+    margin-bottom: 12px;
+}
+
+.subMenu li:last-child, .desplegableRegistro li:last-child {
+    margin-bottom: 0;
+}
+
+.subMenu a, .desplegableRegistro a {
+    display: block;
+    font-size: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subMenu li:nth-last-child(2) a, 
+.desplegableRegistro li:nth-last-child(2) a {
+    border-bottom: none;
+}
+
+.textoPequeño {
+    font-size: 12px !important;
+    color: var(--color-texto-opaco) !important;
+    border-bottom: none !important;
+}
+
+.contenidoHero {
+    font-family: "Jost",sans-serif;
+    margin: auto 5%;
+    max-width: 800px;
+}
+
+.contenidoHero h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.contenidoHero h1 {
+    font-size: 68px;
+    font-weight: bolder;
+    line-height: 1.2;
+    margin-bottom: 35px;
+}
+
+.botonesHero a {
+    display: inline-block;
+    padding: 8px 35px;
+    border: 1px solid rgb(62, 106, 118);
+    background-color: rgb(101, 120, 126);
+    border-radius: 5px; 
+    margin-right: 0px;
+    font-size: 14px;
+    font-weight: medium;
+}
+
+.nuestrasCaracteristicas {
+    background-color: rgba(29, 87, 103, 1);
+    padding: 80px 5%;
+}
+
+.contenedorCaracteristicas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjetaEvento, .tarejtaEquipo, .tarjetaCreatividad {
+    background: rgba(29, 87, 103, 1); 
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgb(28, 93, 111, 0.4); 
+    box-shadow: 0 8px 32px rgba(10, 45, 55, 0.4); 
+    
+    padding: 40px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.tarjetaEvento:hover, .tarejtaEquipo:hover, .tarjetaCreatividad:hover {
+    transform: translateY(-4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tarjetaEvento h3, .tarejtaEquipo h3, .tarjetaCreatividad h3 {
+    font-family: "Jost", sans-serif;
+    font-weight: bold;
+    font-size: medium;
+}
+.tarjetaEvento p, .tarejtaEquipo p, .tarjetaCreatividad p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: medium;
+    font-size: medium;
+}
+
+.contenedorCaracteristicas h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.contenedorCaracteristicas p {
+    font-size: 14px;
+    color: var(--color-texto-opaco);
+}
+
+.servicios {
+    background-color: var(--color-fondo-principal);
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicios > p {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: var(--color-texto-opaco);
+}
+
+.servicios h1 {
+    font-family: "Jost", sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    display: inline-block;
+}
+
+.servicios > a {
+    float: right;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.tarjetasServicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    clear: both;
+}
+
+
+.contSericioBoda, .tarjetaXV, .tarjetaFInfantiles {
+    background-color: #2a2a2a; 
+    height: 350px;
+    width: 350px;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contSericioBoda::after, .tarjetaXV::after, .tarjetaFInfantiles::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    z-index: 1;
+}
+
+.contSericioBoda h3, .tarjetaXV h3, .tarjetaFInfantiles h3 {
+    font-size: 24px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.contSericioBoda a, .tarjetaXV a, .tarjetaFInfantiles a {
+    font-size: 14px;
+    z-index: 2;
+    margin-top: 5px;
+}
+
+.solicitudCotizacion {
+    background-color: var(--color-fondo-secundario);
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.solicitudCotizacion h1 {
+    font-family: "Jost", sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.solicitudCotizacion p {
+    color: var(--color-texto-opaco);
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.solicitudCotizacion a {
+    background-color:rgba(96, 151, 167, 0.4);
+    border: 1px solid rgb(28, 93, 111, 0.4);
+    color: rgba(10, 47, 57, 0.9);
+    padding: 16px 45px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.solicitudCotizacion a:hover {
+    background-color: rgba(96, 151, 167, 0.4);
+}
+
+
+footer {
+    background-color: rgba(15, 53, 62, 1); 
+    padding: 70px 5%;
+}
+
+.generalFooter {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logoFooter .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.logoFooter .logo{
+    font-family: "newsreader", serif;
+}
+
+.logoFooter p {
+    color: var(--color-texto-opaco);
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 350px;
+}
+
+.linksNavegacion h4, .redesSociales h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.linksNavegacion a, .redesSociales a {
+    color: var(--color-texto-opaco);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.linksNavegacion a:hover, .redesSociales a:hover {
+    color: var(--color-texto-blanco);
+}

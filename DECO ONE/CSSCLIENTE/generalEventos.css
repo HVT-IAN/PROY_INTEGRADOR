@@ -1,0 +1,159 @@
+
+.hero {
+    /* Aquí definimos la imagen de fondo de la boda. 
+       El linear-gradient oscurece un poco la foto para que el texto resalte */
+    background-image: linear-gradient(rgba(15, 53, 62, 0.4), rgba(29, 87, 103, 0.6)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 65vh;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: max(5%, calc((100vw - 1200px) / 2));
+    width: 100%;
+}
+
+.hero-content h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 76px;
+    font-weight: 700;
+    color: var(--color-texto-blanco);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 5px;
+}
+
+.hero-content p {
+    font-family: var(--fuente-principal);
+    font-size: 22px;
+    color: var(--color-texto-blanco);
+    opacity: 0.9;
+}
+
+ 
+.description {
+    background-color: var(--color-claro);
+    padding: 80px max(5%, calc((100vw - 1200px) / 2)) 40px;
+    width: 100%;
+}
+
+.desc-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.desc-header hr {
+    width: 45px;
+    border: none;
+    border-top: 1px solid var(--color-texto-opaco);
+}
+
+.desc-header h2 {
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-texto-opaco);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.desc-body p {
+    font-family: var(--fuente-principal);
+    font-size: 16px;
+    color: var(--color-texto-blanco);
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: 60px; /* Evade la línea decorativa de arriba */
+}
+
+.gallery {
+    /* Usamos Flexbox para alinear las imágenes lado a lado */
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 70vh; /* Altura inmersiva */ 
+    margin: 40px 0;
+    overflow: hidden;
+    background-color: var(--fuente-principal); /* Fondo ultra oscuro */
+    gap: 8px;
+}
+
+.gallery img {
+    /* ESTADO INACTIVO (Las tiras delgadas) */
+    width: 5%; /* Ocupan un espacio mínimo */
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    
+    /* Oscurecemos y quitamos un poco de color a las inactivas */
+    filter: brightness(0.25) grayscale(0.6);
+    
+    
+    /* La transición fluida al hacer clic */
+    transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1), 
+                filter 0.7s ease;
+}
+
+/* Evitamos que la última imagen tenga borde a la derecha */
+.gallery img:last-child {
+    border-right: none;
+}
+
+.gallery img.activa {
+    /* Toma casi todo el contenedor */
+    width: 90%; 
+    
+    /* Recupera su color y luz original */
+    filter: brightness(1) grayscale(0);
+    cursor: default;
+}
+
+/* Efecto sutil al pasar el mouse por las tiras inactivas */
+.gallery img:not(.activa):hover {
+    filter: brightness(0.5) grayscale(0.2);
+}
+
+
+.cta {
+    background-color: var(--color-claro);
+    text-align: center;
+    padding: 40px 5% 120px;
+    width: 100%;
+}
+
+.cta h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--color-texto-blanco);
+    margin-bottom: 12px;
+}
+
+.cta p {
+    font-family: var(--fuente-principal);
+    font-size: 18px;
+    color: var(--color-texto-opaco);
+    margin-bottom: 40px;
+}
+
+.btn {
+    background-color: #e2e2e2;
+    color: #000;
+    font-family: var(--fuente-principal);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 1.2rem 3.5rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--color-texto-blanco);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}

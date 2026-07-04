@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleccion de todos los elementos
+    // Selección de todos los elementos
     const btnInicio = document.querySelector('.botonInicioSesion');
     const btnRegistro = document.querySelector('.botonRegistro');
     const contenedorBotones = document.getElementById('contenedorBotones');
@@ -9,41 +9,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const formRecuperar = document.getElementById('recuperarContraseña');
     const linkRecuperar = document.getElementById('linkRecuperar');
 
-    // Limpieza de pantalla
-    const ocultarTodo = () => {
-        formLogin.style.display = 'none';
-        formRegistro.style.display = 'none';
-        if (formRecuperar) formRecuperar.style.display = 'none';
+    // Variable para rastrear qué formulario está visible actualmente
+    let formActivo = formLogin; 
+
+    // Función mágica para el cambio dinámico
+    const transicionFormulario = (nuevoForm) => {
+        if (formActivo === nuevoForm) return; // Si ya estamos en ese form, no hace nada
+
+        // 1. Hacemos que el formulario actual desaparezca suavemente
+        formActivo.classList.add('ocultandose');
+
+        // 2. Esperamos 300ms a que termine la animación de salida
+        setTimeout(() => {
+            formActivo.style.display = 'none';
+            formActivo.classList.remove('ocultandose'); // Limpiamos la clase
+
+            // 3. Mostramos el nuevo formulario (usamos 'flex' para no romper tu CSS)
+            nuevoForm.style.display = 'flex'; 
+            formActivo = nuevoForm; // Actualizamos cuál es el activo ahora
+        }, 300);
     };
 
-    // Inicio de Sesion
+    // Inicio de Sesión
     btnInicio.addEventListener('click', (e) => {
         e.preventDefault();
-        ocultarTodo();
-        formLogin.style.display = 'block'; 
+        transicionFormulario(formLogin);
+        
         btnInicio.classList.add('activo');
         btnRegistro.classList.remove('activo');
         contenedorBotones.classList.remove('mover-derecha');
     });
 
-    // Registro de cuentaa
+    // Registro de cuenta
     btnRegistro.addEventListener('click', (e) => {
         e.preventDefault();
-        ocultarTodo();
-        formRegistro.style.display = 'block';
+        transicionFormulario(formRegistro);
         
         btnRegistro.classList.add('activo');
         btnInicio.classList.remove('activo');
         contenedorBotones.classList.add('mover-derecha');
     });
-    //Recuperar contraseñas.
+
+    // Recuperar contraseña
     if (linkRecuperar) {
         linkRecuperar.addEventListener('click', (e) => {
             e.preventDefault();
-            ocultarTodo();
-            formRecuperar.style.display = 'block';
+            transicionFormulario(formRecuperar);
             
-            // Si entra a recuperar, apagamos ambos botones de arriba
+            // Si entra a recuperar, apagamos la selección de ambos botones superiores
             btnInicio.classList.remove('activo');
             btnRegistro.classList.remove('activo');
         });

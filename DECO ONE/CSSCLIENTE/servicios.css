@@ -1,0 +1,117 @@
+
+.tituloServicios {
+    /* Usamos el color intermedio que declaraste en tu global.css */
+    background-color: var(--color-fondo-tarjetas); 
+    
+    /* Padding dinámico: 100% de ancho visual, pero respeta los 1200px de margen interior */
+    padding: 60px max(5%, calc((100vw - 1200px) / 2)) 40px;
+    width: 100%; 
+}
+
+.tituloServicios p {
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--color-texto-opaco);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Creamos la línea decorativa (—) directo en CSS para no ensuciar tu HTML */
+.tituloServicios p::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--color-texto-opaco);
+}
+
+.tituloServicios h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 46px;
+    font-weight: 700;
+    color: var(--color-texto-blanco);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* */
+.cuadrosServicios {
+    /* Fondo general más claro para que resalten las tarjetas */
+    background-color: var(--color-fondo-titulos); 
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 60px max(5%, calc((100vw - 1200px) / 2)) 120px;
+    width: 100%;
+}
+
+    /*Diseño Individual de todas lar tarjetas*/
+.cuadroBodas, .cuadroFInfantiles, .cuadroXVaños, .cuadroBabyShower {
+    background-color: var(--color-tarjetas); 
+    border: 1px solid rgba(70, 196, 190, 0.97); 
+    border-radius: 12px; 
+    
+    display: flex;
+    flex-direction: column;
+    
+
+    overflow: hidden; 
+    
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+
+.cuadroBodas:hover, .cuadroFInfantiles:hover, .cuadroXVaños:hover, .cuadroBabyShower:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+
+.cuadrosServicios img {
+    width: 100%;
+    height: 280px; 
+    object-fit: cover; 
+    margin-bottom: 25px;
+}
+
+
+.cuadrosServicios h4 {
+    font-family: var(--fuente-principal);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-texto-blanco);
+    padding: 0 30px; 
+}
+
+.cuadrosServicios p {
+    color: var(--color-texto-opaco);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    padding: 0 30px;
+    flex-grow: 1; 
+}
+
+.cuadrosServicios a {
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-texto-blanco);
+    opacity: 0.8;
+    align-self: flex-start;
+    padding: 0 30px 35px 30px;
+}
+
+.cuadrosServicios a:hover {
+    opacity: 1;
+}
